@@ -67,7 +67,7 @@ namespace apiBrigadeiro.Controllers
             var cliente = _context.Clientes.FirstOrDefault(p => p.Id == id);
 
             if(cliente is null)
-                return NotFound();
+                return NotFound("Cliente não encontrado.");
             
             _context.Clientes.Remove(cliente);
             _context.SaveChanges();
