@@ -72,7 +72,7 @@ namespace apiBrigadeiro.Controllers
             var doce = _context.Doces.FirstOrDefault(p => p.Id == id);
 
             if (doce is null)
-                return NotFound();
+                return NotFound("Doce não encontrado.");
             
             _context.Doces.Remove(doce);
             _context.SaveChanges();
