@@ -9,7 +9,6 @@ namespace apiBrigadeiro.Model
     public class Compras
     {
         public int Id {get; set;}
-        public string? ListaDoces {get; set;}
         public int ValorTotal {get; set;}
         public string? FormaPagamento {get; set;}
 
