@@ -7,7 +7,6 @@ using apiBrigadeiro.Context;
 using apiBrigadeiro.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 
 namespace apiBrigadeiro.Controllers
 {
@@ -25,11 +24,11 @@ namespace apiBrigadeiro.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Cliente>> Get()
         {
-            var cliente = _context.Clientes.ToList();
-            if(cliente.Count == 0)
+            var clientes = _context.Clientes.ToList();
+            if(clientes.Count == 0)
                 return NotFound();
 
-            return cliente;
+            return clientes;
         }
 
         [HttpPost]
