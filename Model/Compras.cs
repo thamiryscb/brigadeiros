@@ -12,15 +12,12 @@ namespace apiBrigadeiro.Model
         public int ValorTotal {get; set;}
         public string? FormaPagamento {get; set;}
 
-
-        public Cliente Cliente {get; set;}
-        public Entrega Entrega {get; set;}
         public List<Doce> doces {get; set;}
-
 
         public Compras()
        {
             doces = new List<Doce>();
+
        }
     }
 }

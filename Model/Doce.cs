@@ -9,7 +9,7 @@ namespace apiBrigadeiro.Model
     {
         public int Id { get; set; }
         public string? Nome { get; set; }
-        public int Valor { get; set; }
+        public int Valores { get; set; }
         public int Quantidades { get; set; }
         public string? Sabores { get; set; }
     }
