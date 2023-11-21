@@ -20,11 +20,11 @@ namespace apiBrigadeiro.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Cliente>> Get()
         {
-            var cliente = _context.Clientes.ToList();
-            if(cliente.Count == 0)
+            var clientes = _context.Clientes.ToList();
+            if(clientes.Count == 0)
                 return NotFound();
 
-            return cliente;
+            return clientes;
         }
 
         [HttpPost]
@@ -63,7 +63,7 @@ namespace apiBrigadeiro.Controllers
             var cliente = _context.Clientes.FirstOrDefault(p => p.Id == id);
 
             if(cliente is null)
-                return NotFound();
+                return NotFound("Cliente não encontrado.");
             
             _context.Clientes.Remove(cliente);
             _context.SaveChanges();

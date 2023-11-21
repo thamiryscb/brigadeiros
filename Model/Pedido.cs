@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace apiBrigadeiro.Model
 {
-    public class Compras
+    public class Pedido
     {
         public int Id {get; set;}
-        public string? ListaDoces {get; set;}
         public int ValorTotal {get; set;}
         public string? FormaPagamento {get; set;}
 
-
-        public Cliente Cliente {get; set;}
-        public Entrega Entrega {get; set;}
         public List<Doce> doces {get; set;}
+        public List<Entrega> entregas {get; set;}
 
-
-        public Compras()
+        public Pedido()
        {
             doces = new List<Doce>();
+            entregas = new List<Entrega>();
+
        }
     }
 }

@@ -12,7 +12,7 @@ namespace apiBrigadeiro.Context
     {
         public apiBrigadeiroContext(DbContextOptions options) : base(options) {}
         public DbSet<Cliente>? Clientes { get; set; }
-        public DbSet<Compras>? Compras {get; set;}
+        public DbSet<Pedido>? Pedidos {get; set;}
         public DbSet<Doce>? Doces {get; set;}
         public DbSet<Entrega> Entregas {get; set;}
         public DbSet<Avaliação> Avaliações { get; internal set; }

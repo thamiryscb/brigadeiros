@@ -14,5 +14,12 @@ namespace apiBrigadeiro.Model
         public string? Email { get; set; }
         public string? Senha { get; set; }
         
+        public List<Pedido> pedidos {get; set;}
+
+        public Cliente()
+       {
+            pedidos = new List<Pedido>();
+
+       }
     }
 }
