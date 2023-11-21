@@ -7,6 +7,7 @@ namespace brigadeiros.Model
 {
     public class Avaliação
     {
+        public int Id {get; set;}
         public string? Nome {get; set;}
         public Avaliação(int nota) 
         {

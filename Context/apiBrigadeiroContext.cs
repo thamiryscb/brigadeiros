@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using apiBrigadeiro.Model;
+using brigadeiros.Model;
 
 namespace apiBrigadeiro.Context
 {
@@ -14,6 +15,7 @@ namespace apiBrigadeiro.Context
         public DbSet<Compras>? Compras {get; set;}
         public DbSet<Doce>? Doces {get; set;}
         public DbSet<Entrega> Entregas {get; set;}
+        public DbSet<Avaliação> Avaliações { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

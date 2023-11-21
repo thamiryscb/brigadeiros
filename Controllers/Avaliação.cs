@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using apiBrigadeiro.Context;
 using brigadeiros.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace brigadeiros.Controllers
 {
@@ -27,6 +28,50 @@ namespace brigadeiros.Controllers
                 return NotFound();
 
             return avaliação;
+        }
+
+        [HttpPost]
+        public ActionResult Post(Avaliação avaliação){
+            _context.Avaliações.Add(avaliação);
+            _context.SaveChanges();
+
+            return new CreatedAtRouteResult("GetAvaliação",
+                new{id = avaliação.Id},
+                avaliação);
+        }
+
+        [HttpGet("{id:int}", Name="GetAvaliação")]
+        public ActionResult<Avaliação> Get(int id)
+        {
+            var avaliação = _context.Avaliações.FirstOrDefault(p => p.Id == id);
+            if(avaliação is null)
+                return NotFound("Avaliação não encontrada.");
+
+            return avaliação;
+        }
+
+        [HttpPut("{id:int}")]
+        public ActionResult Put(int id, Avaliação avaliação){
+            if(id != avaliação.Id)
+                return BadRequest();
+            
+            _context.Entry(avaliação).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok(avaliação);
+        }
+
+        [HttpDelete("{id:int}")]
+        public ActionResult Delete(int id){
+            var avaliação = _context.Avaliações.FirstOrDefault(p => p.Id == id);
+
+            if(avaliação is null)
+                return NotFound();
+            
+            _context.Avaliações.Remove(avaliação);
+            _context.SaveChanges();
+
+            return Ok(avaliação);
         }
     }
 }
