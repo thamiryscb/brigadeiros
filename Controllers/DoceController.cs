@@ -7,7 +7,6 @@ using apiBrigadeiro.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace apiBrigadeiro.Controllers
 {
     [ApiController]
@@ -16,7 +15,7 @@ namespace apiBrigadeiro.Controllers
     {
         private readonly ILogger<DoceController> _logger; 
         private readonly apiBrigadeiroContext _context;
-
+        
         public DoceController(ILogger<DoceController> logger, apiBrigadeiroContext context)
         {
             _logger = logger;
