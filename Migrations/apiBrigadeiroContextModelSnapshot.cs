@@ -56,44 +56,6 @@ namespace apiBrigadeiro.Migrations
                     b.ToTable("clientes");
                 });
 
-            modelBuilder.Entity("apiBrigadeiro.Model.Compras", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("integer")
-                        .HasColumnName("clienteid");
-
-                    b.Property<int>("EntregaId")
-                        .HasColumnType("integer")
-                        .HasColumnName("entregaid");
-
-                    b.Property<string>("FormaPagamento")
-                        .HasColumnType("text")
-                        .HasColumnName("formapagamento");
-
-                    b.Property<string>("ListaDoces")
-                        .HasColumnType("text")
-                        .HasColumnName("listadoces");
-
-                    b.Property<int>("ValorTotal")
-                        .HasColumnType("integer")
-                        .HasColumnName("valortotal");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClienteId");
-
-                    b.HasIndex("EntregaId");
-
-                    b.ToTable("compras");
-                });
-
             modelBuilder.Entity("apiBrigadeiro.Model.Doce", b =>
                 {
                     b.Property<int>("Id")
@@ -103,13 +65,13 @@ namespace apiBrigadeiro.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ComprasId")
-                        .HasColumnType("integer")
-                        .HasColumnName("comprasid");
-
                     b.Property<string>("Nome")
                         .HasColumnType("text")
                         .HasColumnName("nome");
+
+                    b.Property<int?>("PedidoId")
+                        .HasColumnType("integer")
+                        .HasColumnName("pedidoid");
 
                     b.Property<int>("Quantidades")
                         .HasColumnType("integer")
@@ -125,7 +87,7 @@ namespace apiBrigadeiro.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ComprasId");
+                    b.HasIndex("PedidoId");
 
                     b.ToTable("doces");
                 });
@@ -147,6 +109,10 @@ namespace apiBrigadeiro.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("frete");
 
+                    b.Property<int?>("PedidoId")
+                        .HasColumnType("integer")
+                        .HasColumnName("pedidoid");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("text")
@@ -154,38 +120,96 @@ namespace apiBrigadeiro.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PedidoId");
+
                     b.ToTable("entregas");
                 });
 
-            modelBuilder.Entity("apiBrigadeiro.Model.Compras", b =>
+            modelBuilder.Entity("apiBrigadeiro.Model.Pedido", b =>
                 {
-                    b.HasOne("apiBrigadeiro.Model.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
-                    b.HasOne("apiBrigadeiro.Model.Entrega", "Entrega")
-                        .WithMany()
-                        .HasForeignKey("EntregaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Navigation("Cliente");
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("integer")
+                        .HasColumnName("clienteid");
 
-                    b.Navigation("Entrega");
+                    b.Property<string>("FormaPagamento")
+                        .HasColumnType("text")
+                        .HasColumnName("formapagamento");
+
+                    b.Property<int>("ValorTotal")
+                        .HasColumnType("integer")
+                        .HasColumnName("valortotal");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("pedidos");
+                });
+
+            modelBuilder.Entity("brigadeiros.Model.Avaliação", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Data")
+                        .HasColumnType("text")
+                        .HasColumnName("data");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("text")
+                        .HasColumnName("nome");
+
+                    b.Property<int>("Nota")
+                        .HasColumnType("integer")
+                        .HasColumnName("nota");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("avaliações");
                 });
 
             modelBuilder.Entity("apiBrigadeiro.Model.Doce", b =>
                 {
-                    b.HasOne("apiBrigadeiro.Model.Compras", null)
+                    b.HasOne("apiBrigadeiro.Model.Pedido", null)
                         .WithMany("doces")
-                        .HasForeignKey("ComprasId");
+                        .HasForeignKey("PedidoId");
                 });
 
-            modelBuilder.Entity("apiBrigadeiro.Model.Compras", b =>
+            modelBuilder.Entity("apiBrigadeiro.Model.Entrega", b =>
+                {
+                    b.HasOne("apiBrigadeiro.Model.Pedido", null)
+                        .WithMany("entregas")
+                        .HasForeignKey("PedidoId");
+                });
+
+            modelBuilder.Entity("apiBrigadeiro.Model.Pedido", b =>
+                {
+                    b.HasOne("apiBrigadeiro.Model.Cliente", null)
+                        .WithMany("pedidos")
+                        .HasForeignKey("ClienteId");
+                });
+
+            modelBuilder.Entity("apiBrigadeiro.Model.Cliente", b =>
+                {
+                    b.Navigation("pedidos");
+                });
+
+            modelBuilder.Entity("apiBrigadeiro.Model.Pedido", b =>
                 {
                     b.Navigation("doces");
+
+                    b.Navigation("entregas");
                 });
 #pragma warning restore 612, 618
         }
