@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using apiBrigadeiro.Model;
 using brigadeiros.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace apiBrigadeiro.Context
 {
-    public class apiBrigadeiroContext : DbContext
+    public class apiBrigadeiroContext : IdentityDbContext
     {
         public apiBrigadeiroContext(DbContextOptions options) : base(options) {}
         public DbSet<Cliente>? Clientes { get; set; }
