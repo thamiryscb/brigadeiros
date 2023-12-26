@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
-=======
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
->>>>>>> dca7eed98190501a68b7d437d1808b0d7e995c64
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
