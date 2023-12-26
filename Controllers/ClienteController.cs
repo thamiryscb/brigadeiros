@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace apiBrigadeiro.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [ApiController]
     [Route("[controller]")]
     
