@@ -4,13 +4,13 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using apiBrigadeiro.Context;
-using brigadeiros.Model;
+using apiBrigadeiro.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
 
-namespace brigadeiros.Controllers
+namespace apiBrigadeiro.Controllers
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
     [ApiController]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace brigadeiros.DTO
+namespace apiBrigadeiro.DTO
 {
     public class UsuarioDTO
     {

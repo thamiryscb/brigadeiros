@@ -5,13 +5,12 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using ApiUniversidade.DTO;
-using brigadeiros.DTO;
+using apiBrigadeiro.DTO;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ApiUniversidade.Controllers
+namespace apiBrigadeiro.Controllers
 {
     [ApiController]
     [Route("[controller]")]

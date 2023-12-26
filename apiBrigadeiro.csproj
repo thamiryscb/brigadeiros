@@ -7,16 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14">
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14">
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3">
-=======
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
->>>>>>> fdaac8bbebd86da7db2c6a65d82f25078fcb6833
+
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14"/>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14"/>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

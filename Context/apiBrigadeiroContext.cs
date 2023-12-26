@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using apiBrigadeiro.Model;
-using brigadeiros.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace apiBrigadeiro.Context
