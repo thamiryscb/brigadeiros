@@ -13,7 +13,8 @@ using Microsoft.IdentityModel.Tokens;
 namespace apiBrigadeiro.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/{v:apiversion}/autoriza")]
     public class AutorizaController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;

@@ -13,7 +13,8 @@ namespace apiBrigadeiro.Controllers
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/{v:apiversion}/doce")]
     public class DoceController : ControllerBase
     {
         private readonly ILogger<DoceController> _logger; 

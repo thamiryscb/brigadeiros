@@ -13,20 +13,20 @@ namespace apiBrigadeiro.Controllers
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
     [ApiController]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route("api/{v:apiversion}/cliente")]
     
-    public class ClienteController : ControllerBase
+    public class ClienteControllerv2 : ControllerBase
     {
         [HttpGet(Name = "GetExemplo")]
         [Route("exemplo")]
         public String GetExemplo()
         {
-            return "Api v1";
+            return "Api v2";
         }
         private readonly ILogger<ClienteController> _logger;
         private readonly apiBrigadeiroContext _context;
-        public ClienteController(ILogger<ClienteController> logger, apiBrigadeiroContext context)
+        public ClienteControllerv2(ILogger<ClienteController> logger, apiBrigadeiroContext context)
         {
             _logger = logger;
             _context = context;
